@@ -23,6 +23,16 @@ Or install it yourself as:
 Usage
 -----
 
+### MLB Standings ###
+
+To query the MLB standings for a given date:
+
+    Xmlstats::Endpoints::MlbStanding.fetch(Date.parse("2012-09-01"))
+
+For the current date, you can drop the parameter:
+
+    Xmlstats::Endpoints::MlbStanding.fetch
+
 Contributing
 ------------
 
