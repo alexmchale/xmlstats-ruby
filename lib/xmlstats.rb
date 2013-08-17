@@ -1,9 +1,12 @@
 require "time"
 require "net/http"
 require "net/https"
+require "json"
 
+require "xmlstats/endpoint"
 require "xmlstats/version"
-require "xmlstats/mlb_standing"
+
+require "xmlstats/endpoints/mlb_standing"
 
 module Xmlstats
 
