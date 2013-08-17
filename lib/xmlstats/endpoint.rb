@@ -27,19 +27,14 @@ module Xmlstats
         raise "path not defined" unless path
 
         uri = URI.parse("https://erikberg.com/#{path}.json")
-        http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = true
-        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-        headers = {}
-        api_key = Xmlstats.api_key
-        headers["Authorization"] = "Bearer #{api_key}" if api_key
-        request = Net::HTTP::Get.new(uri.path, headers)
-        response = http.request(request)
 
-        if response.kind_of? Net::HTTPOK
-          response.body
-        else
-          raise "failed: #{response.inspect}"
+        json = Xmlstats.cacher && Xmlstats.cacher.get(uri.path)
+        return json if json
+
+        json = Xmlstats.http_getter.get(uri)
+        if json
+          Xmlstats.cacher.set(uri.path, json)
+          json
         end
       end
 
