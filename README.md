@@ -1,8 +1,12 @@
-# Xmlstats
+xmlstats-ruby
+=============
 
-TODO: Write a gem description
+A ruby client for xmlstats, an easy to use API for obtaining MLB and NBA statistics in XML or JSON.
 
-## Installation
+See xmlstats here: https://erikberg.com/api
+
+Installation
+------------
 
 Add this line to your application's Gemfile:
 
@@ -16,11 +20,11 @@ Or install it yourself as:
 
     $ gem install xmlstats
 
-## Usage
+Usage
+-----
 
-TODO: Write usage instructions here
-
-## Contributing
+Contributing
+------------
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
