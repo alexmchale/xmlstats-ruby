@@ -17,9 +17,16 @@ module Xmlstats
         if response.kind_of? Net::HTTPOK
           response.body
         else
-          puts response.body
-          raise "failed: #{response.inspect}"
+          message        = "api request returned #{response.code}"
+          error          = Error.new(message)
+          error.request  = request
+          error.response = response
+          raise error
         end
+      end
+
+      class Error < RuntimeError
+        attr_accessor :request, :response
       end
 
     end
