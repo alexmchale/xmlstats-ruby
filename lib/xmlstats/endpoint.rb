@@ -7,6 +7,9 @@ module Xmlstats
       def initialize(data = {})
         data.each do |key, value|
           instance_variable_set("@#{key}", value)
+          (class << self; self; end).class_eval do
+            define_method(key) { instance_variable_get "@#{key}" }
+          end
         end
       end
 
