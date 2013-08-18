@@ -6,6 +6,18 @@ require "json"
 require "xmlstats/endpoint"
 require "xmlstats/version"
 
+require "xmlstats/object"
+
+require "xmlstats/objects/standing"
+require "xmlstats/objects/team"
+require "xmlstats/objects/site"
+require "xmlstats/objects/event"
+require "xmlstats/objects/basketball_stat"
+require "xmlstats/objects/batter"
+require "xmlstats/objects/event_information"
+require "xmlstats/objects/official"
+require "xmlstats/objects/pitcher"
+
 require "xmlstats/cachers/memory"
 require "xmlstats/cachers/redis"
 
