@@ -10,8 +10,8 @@ module Xmlstats
         end
       end
 
-      def http_get_json
-        self.class.http_get_json
+      def http_get
+        self.class.http_get
       end
 
     end
@@ -22,11 +22,18 @@ module Xmlstats
         @path = path
       end
 
-      def http_get_json(path = nil)
+      def http_get(path = nil, params = {})
         path ||= @path
         raise "path not defined" unless path
 
-        uri = URI.parse("https://erikberg.com/#{path}.json")
+        encoded_params =
+          params.reject do |k, v|
+            v == nil
+          end.map do |k, v|
+            "#{URI.escape k.to_s}=#{URI.escape v.to_s}"
+          end.join("&")
+
+        uri = URI.parse("https://erikberg.com/#{path}.json?#{encoded_params}")
 
         json = Xmlstats.cacher && Xmlstats.cacher.get(uri.path)
         return json if json
@@ -38,11 +45,11 @@ module Xmlstats
         end
       end
 
-      def fetch_json(path = nil)
+      def fetch_json(path = nil, params = {})
         path ||= @path
         raise "path not defined" unless path
 
-        json = http_get_json(path)
+        json = http_get(path, params)
         JSON.load(json)
       end
 

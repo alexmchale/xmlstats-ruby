@@ -11,6 +11,7 @@ require "xmlstats/cachers/redis"
 
 require "xmlstats/http_getters/net_http"
 
+require "xmlstats/endpoints/event"
 require "xmlstats/endpoints/mlb_standing"
 
 module Xmlstats
@@ -20,7 +21,7 @@ module Xmlstats
   end
 
   def self.api_key= api_key
-    @api_key
+    @api_key = api_key
   end
 
   def self.http_getter
