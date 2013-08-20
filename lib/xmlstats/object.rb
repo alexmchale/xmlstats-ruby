@@ -9,7 +9,15 @@ module Xmlstats
 
       self.class.object_references.each do |field_name, field_type|
         ivar = "@#{field_name}"
-        obj  = field_type.new(instance_variable_get ivar)
+        val  = instance_variable_get(ivar)
+
+        # Turn hashes into objects, turn arrays into arrays of objects.
+        obj =
+          case val
+          when Array then val.map { |v| field_type.new v }
+          else            field_type.new val
+          end
+
         instance_variable_set ivar, obj
       end
     end

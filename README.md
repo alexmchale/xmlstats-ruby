@@ -23,6 +23,16 @@ Or install it yourself as:
 Usage
 -----
 
+### Events ###
+
+To query the MLB events for a given date:
+
+    Xmlstats::Endpoints::Event.fetch(Date.parse("2012-08-01"), :mlb)
+
+To query all events for a given date:
+
+    Xmlstats::Endpoints::Event.fetch(Date.parse("2013-08-01"))
+
 ### MLB Standings ###
 
 To query the MLB standings for a given date:

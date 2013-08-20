@@ -17,6 +17,9 @@ require "xmlstats/objects/batter"
 require "xmlstats/objects/event_information"
 require "xmlstats/objects/official"
 require "xmlstats/objects/pitcher"
+require "xmlstats/objects/mlb_box_score"
+require "xmlstats/objects/nba_box_score"
+require "xmlstats/objects/team_result"
 
 require "xmlstats/cachers/memory"
 require "xmlstats/cachers/redis"
@@ -25,6 +28,14 @@ require "xmlstats/http_getters/net_http"
 
 require "xmlstats/endpoints/event"
 require "xmlstats/endpoints/mlb_standing"
+require "xmlstats/endpoints/nba_standing"
+require "xmlstats/endpoints/mlb_wild_card_standing"
+require "xmlstats/endpoints/mlb_box_score"
+require "xmlstats/endpoints/nba_box_score"
+require "xmlstats/endpoints/mlb_teams"
+require "xmlstats/endpoints/nba_teams"
+require "xmlstats/endpoints/mlb_team_results"
+require "xmlstats/endpoints/nba_team_results"
 
 module Xmlstats
 

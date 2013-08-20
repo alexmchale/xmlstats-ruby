@@ -35,12 +35,12 @@ module Xmlstats
 
         uri = URI.parse("https://erikberg.com/#{path}.json?#{encoded_params}")
 
-        json = Xmlstats.cacher && Xmlstats.cacher.get(uri.path)
+        json = Xmlstats.cacher && Xmlstats.cacher.get(uri.to_s)
         return json if json
 
         json = Xmlstats.http_getter.get(uri)
         if json
-          Xmlstats.cacher.set(uri.path, json)
+          Xmlstats.cacher.set(uri.to_s, json)
           json
         end
       end

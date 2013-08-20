@@ -11,7 +11,7 @@ module Xmlstats
         headers                  = {}
         api_key                  = Xmlstats.api_key
         headers["Authorization"] = "Bearer #{api_key}" if api_key
-        request                  = Net::HTTP::Get.new(uri.path, headers)
+        request                  = Net::HTTP::Get.new(uri.request_uri, headers)
         response                 = http.request(request)
 
         if response.kind_of? Net::HTTPOK
