@@ -20,6 +20,7 @@ require "xmlstats/objects/pitcher"
 require "xmlstats/objects/mlb_box_score"
 require "xmlstats/objects/nba_box_score"
 require "xmlstats/objects/team_result"
+require "xmlstats/objects/nba_leader"
 
 require "xmlstats/cachers/memory"
 require "xmlstats/cachers/redis"
@@ -36,6 +37,7 @@ require "xmlstats/endpoints/mlb_teams"
 require "xmlstats/endpoints/nba_teams"
 require "xmlstats/endpoints/mlb_team_results"
 require "xmlstats/endpoints/nba_team_results"
+require "xmlstats/endpoints/nba_leaders"
 
 module Xmlstats
 
