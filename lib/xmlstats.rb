@@ -47,6 +47,15 @@ module Xmlstats
     @api_key = api_key
   end
 
+  def self.contact_info
+    error = "specify user-agent contact info with: Xmlstats.contact_info = 'you@example.com'"
+    @contact_info or raise(error)
+  end
+
+  def self.contact_info= contact_info
+    @contact_info = contact_info
+  end
+
   def self.http_getter
     @http_getter || Xmlstats::HttpGetters::NetHttp.new
   end
