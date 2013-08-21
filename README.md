@@ -166,6 +166,43 @@ Examples
 
 See https://github.com/alexmchale/xmlstats-ruby/tree/master/examples
 
+Troubleshooting
+---------------
+
+### Certificate Error on OSX ###
+
+On OSX you may see the following exception when trying to use xmlstats:
+
+    /Users/alexmchale/.rbenv-osx/versions/2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect': SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (OpenSSL::SSL::SSLError)
+            from /Users/alexmchale/.rbenv-osx/versions/2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `block in connect'
+            from /Users/alexmchale/.rbenv-osx/versions/2.0.0-p247/lib/ruby/2.0.0/timeout.rb:52:in `timeout'
+            from /Users/alexmchale/.rbenv-osx/versions/2.0.0-p247/lib/ruby/2.0.0/net/http.rb:918:in `connect'
+            from /Users/alexmchale/.rbenv-osx/versions/2.0.0-p247/lib/ruby/2.0.0/net/http.rb:862:in `do_start'
+            from /Users/alexmchale/.rbenv-osx/versions/2.0.0-p247/lib/ruby/2.0.0/net/http.rb:851:in `start'
+            from /Users/alexmchale/.rbenv-osx/versions/2.0.0-p247/lib/ruby/2.0.0/net/http.rb:1367:in `request'
+            from /Users/alexmchale/src/anticlever/xmlstats/lib/xmlstats/http_getters/net_http.rb:21:in `get'
+            from /Users/alexmchale/src/anticlever/xmlstats/lib/xmlstats/endpoint.rb:41:in `http_get'
+            from /Users/alexmchale/src/anticlever/xmlstats/lib/xmlstats/endpoint.rb:52:in `fetch_json'
+            from /Users/alexmchale/src/anticlever/xmlstats/lib/xmlstats/endpoints/events.rb:8:in `fetch'
+            from /Users/alexmchale/src/anticlever/xmlstats/lib/xmlstats.rb:91:in `events'
+            from test.rb:19:in `<main>'
+
+To get around this, install the curl-ca-bundle in homebrew:
+
+    [zeus ~/src/anticlever/xmlstats]$ brew install curl-ca-bundle
+    ==> Downloading https://downloads.sourceforge.net/project/machomebrew/mirror/curl-ca-bundle-1.87.tar.bz2
+    ######################################################################## 100.0%
+    ==> Caveats
+    To use these certificates with OpenSSL:
+
+      export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+    ==> Summary
+    🍺  /usr/local/Cellar/curl-ca-bundle/1.87: 2 files, 256K, built in 2 seconds
+
+Finally, add the following to your environment before your application starts:
+
+    export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+
 Contributing
 ------------
 

@@ -7,7 +7,7 @@ module Xmlstats
       def get(uri)
         http                     = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl             = true
-        http.verify_mode         = OpenSSL::SSL::VERIFY_NONE
+        http.verify_mode         = OpenSSL::SSL::VERIFY_PEER
         headers                  = {}
         api_key                  = Xmlstats.api_key
         headers["User-Agent"]    = "xmlstats-ruby/#{Xmlstats::VERSION} (#{Xmlstats.contact_info})"
