@@ -20,6 +20,13 @@ module Xmlstats
 
         instance_variable_set ivar, obj
       end
+
+      self.class.object_times.each do |field_name|
+        ivar = "@#{field_name}"
+        val  = instance_variable_get(ivar)
+        time = Time.parse(val)
+        instance_variable_set(ivar, time)
+      end
     end
 
     def fields
@@ -39,6 +46,15 @@ module Xmlstats
 
     def self.object_references
       @object_references ||= []
+    end
+
+    def self.time field_name
+      @object_times ||= []
+      @object_times << field_name
+    end
+
+    def self.object_times
+      @object_times ||= []
     end
 
   end
