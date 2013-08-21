@@ -41,82 +41,96 @@ require "xmlstats/endpoints/nba_leaders"
 
 module Xmlstats
 
-  def self.api_key
-    @api_key ||= ENV["XMLSTATS_API_KEY"]
-  end
+  class << self
 
-  def self.api_key= api_key
-    @api_key = api_key
-  end
+    # Manage api key
 
-  def self.contact_info
-    error = "specify user-agent contact info with: Xmlstats.contact_info = 'you@example.com'"
-    @contact_info ||= ENV["XMLSTATS_CONTACT_INFO"]
-    @contact_info or raise(error)
-  end
+    def api_key
+      @api_key ||= ENV["XMLSTATS_API_KEY"]
+    end
 
-  def self.contact_info= contact_info
-    @contact_info = contact_info
-  end
+    def api_key= api_key
+      @api_key = api_key
+    end
 
-  def self.http_getter
-    @http_getter || Xmlstats::HttpGetters::NetHttp.new
-  end
+    # Manage contact info
 
-  def self.http_getter= http_getter
-    @http_getter = http_getter
-  end
+    def contact_info
+      error = "specify user-agent contact info with: Xmlstats.contact_info = 'you@example.com'"
+      @contact_info ||= ENV["XMLSTATS_CONTACT_INFO"]
+      @contact_info or raise(error)
+    end
 
-  def self.cacher
-    @cacher || Xmlstats::Cachers::Memory.new
-  end
+    def contact_info= contact_info
+      @contact_info = contact_info
+    end
 
-  def self.cacher= cacher
-    @cacher = cacher
-  end
+    # Manage http getter
 
-  def self.events *args
-    Xmlstats::Endpoints::Events.fetch *args
-  end
+    def http_getter
+      @http_getter || Xmlstats::HttpGetters::NetHttp.new
+    end
 
-  def self.mlb_box_score *args
-    Xmlstats::Endpoints::MlbBoxScore.fetch *args
-  end
+    def http_getter= http_getter
+      @http_getter = http_getter
+    end
 
-  def self.nba_box_score *args
-    Xmlstats::Endpoints::NbaBoxScore.fetch *args
-  end
+    # Manage cacher
 
-  def self.mlb_standing *args
-    Xmlstats::Endpoints::MlbStanding.fetch *args
-  end
+    def cacher
+      @cacher || Xmlstats::Cachers::Memory.new
+    end
 
-  def self.nba_standing *args
-    Xmlstats::Endpoints::NbaStanding.fetch *args
-  end
+    def cacher= cacher
+      @cacher = cacher
+    end
 
-  def self.mlb_wild_card_standing *args
-    Xmlstats::Endpoints::MlbWildCardStanding.fetch *args
-  end
+    # Wrapper methods to each endpoint
 
-  def self.mlb_team_results *args
-    Xmlstats::Endpoints::MlbTeamResults.fetch *args
-  end
+    def events *args
+      Xmlstats::Endpoints::Events.fetch *args
+    end
 
-  def self.nba_team_results *args
-    Xmlstats::Endpoints::NbaTeamResults.fetch *args
-  end
+    def mlb_box_score *args
+      Xmlstats::Endpoints::MlbBoxScore.fetch *args
+    end
 
-  def self.mlb_teams *args
-    Xmlstats::Endpoints::MlbTeams.fetch *args
-  end
+    def nba_box_score *args
+      Xmlstats::Endpoints::NbaBoxScore.fetch *args
+    end
 
-  def self.nba_teams *args
-    Xmlstats::Endpoints::NbaTeams.fetch *args
-  end
+    def mlb_standing *args
+      Xmlstats::Endpoints::MlbStanding.fetch *args
+    end
 
-  def self.nba_leaders *args
-    Xmlstats::Endpoints::NbaLeaders.fetch *args
+    def nba_standing *args
+      Xmlstats::Endpoints::NbaStanding.fetch *args
+    end
+
+    def mlb_wild_card_standing *args
+      Xmlstats::Endpoints::MlbWildCardStanding.fetch *args
+    end
+
+    def mlb_team_results *args
+      Xmlstats::Endpoints::MlbTeamResults.fetch *args
+    end
+
+    def nba_team_results *args
+      Xmlstats::Endpoints::NbaTeamResults.fetch *args
+    end
+
+    def mlb_teams *args
+      Xmlstats::Endpoints::MlbTeams.fetch *args
+    end
+
+    def nba_teams *args
+      Xmlstats::Endpoints::NbaTeams.fetch *args
+    end
+
+    def nba_leaders *args
+      Xmlstats::Endpoints::NbaLeaders.fetch *args
+    end
+
   end
 
 end
