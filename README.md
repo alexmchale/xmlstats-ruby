@@ -1,9 +1,7 @@
 xmlstats-ruby
 =============
 
-A ruby client for xmlstats, an easy to use API for obtaining MLB and NBA statistics in XML or JSON.
-
-See xmlstats here: https://erikberg.com/api
+A ruby client for [xmlstats](https://erikberg.com/api), an easy to use API for obtaining MLB and NBA statistics in XML or JSON.
 
 Installation
 ------------
