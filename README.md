@@ -20,6 +20,25 @@ Or install it yourself as:
 
     $ gem install xmlstats
 
+Configuration
+-------------
+
+Configure xmlstats-ruby as follows with your API key and contact info. The
+contact info is used in the User-Agent string.
+
+    Xmlstats.api_key = "my api key"
+    Xmlstats.contact_info = "alex@anticlever.com"
+
+This library supports a couple of different caching mechanisms to prevent
+constantly hitting the API server.
+
+    Xmlstats.cacher = Xmlstats::Cachers::Memory.new
+    Xmlstats.cacher = Xmlstats::Cachers::Redis.new(:host => "10.0.81.7")
+
+The cacher can be any object which responds to the get(key) and set(key, value)
+methods. The Redis cacher will automatically expire keys after 1 hour. The
+memory cacher never expires keys.
+
 Usage
 -----
 
