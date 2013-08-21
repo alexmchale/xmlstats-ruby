@@ -46,6 +46,11 @@ The cacher can be any object which responds to the get(key) and set(key, value)
 methods. The Redis cacher will automatically expire keys after 1 hour. The
 memory cacher never expires keys.
 
+The Redis cacher can accept a hash for options which will be passed to
+Redis.new, or a previously instantiated Redis object. Note that this gem does
+not depend on the redis gem, so you will need to add that as your own
+dependency if you choose to use that cacher.
+
 Usage
 -----
 
