@@ -49,6 +49,8 @@ Usage
 
 ### Events ###
 
+https://erikberg.com/api#events
+
 To query the MLB events for a given date:
 
     Xmlstats.events(Date.parse("2013-08-01"), :mlb)
