@@ -187,7 +187,7 @@ On OSX you may see the following exception when trying to use xmlstats:
             from /Users/alexmchale/src/anticlever/xmlstats/lib/xmlstats.rb:91:in `events'
             from test.rb:19:in `<main>'
 
-To get around this, install the curl-ca-bundle in homebrew:
+To get around this, install the curl-ca-bundle in [Homebrew](http://brew.sh):
 
     [zeus ~/src/anticlever/xmlstats]$ brew install curl-ca-bundle
     ==> Downloading https://downloads.sourceforge.net/project/machomebrew/mirror/curl-ca-bundle-1.87.tar.bz2
