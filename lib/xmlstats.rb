@@ -42,7 +42,7 @@ require "xmlstats/endpoints/nba_leaders"
 module Xmlstats
 
   def self.api_key
-    @api_key
+    @api_key ||= ENV["XMLSTATS_API_KEY"]
   end
 
   def self.api_key= api_key
@@ -51,6 +51,7 @@ module Xmlstats
 
   def self.contact_info
     error = "specify user-agent contact info with: Xmlstats.contact_info = 'you@example.com'"
+    @contact_info ||= ENV["XMLSTATS_CONTACT_INFO"]
     @contact_info or raise(error)
   end
 

@@ -26,6 +26,13 @@ Configuration
 Configure xmlstats-ruby as follows with your API key and contact info. The
 contact info is used in the User-Agent string.
 
+You can choose to set this via environment variables:
+
+    export XMLSTATS_API_KEY="my api key"
+    export XMLSTATS_CONTACT_INFO="alex@anticlever.com"
+
+Or in Ruby:
+
     Xmlstats.api_key = "my api key"
     Xmlstats.contact_info = "alex@anticlever.com"
 
