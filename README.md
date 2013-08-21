@@ -149,6 +149,11 @@ To query the current leaders for points per game:
 
     Xmlstats.nba_leaders(:points_per_game)
 
+Examples
+--------
+
+See https://github.com/alexmchale/xmlstats-ruby/tree/master/examples
+
 Contributing
 ------------
 
