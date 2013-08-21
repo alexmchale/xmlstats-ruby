@@ -1,4 +1,4 @@
-class Xmlstats::Endpoints::Event
+class Xmlstats::Endpoints::Events
 
   include Xmlstats::Endpoint
 

@@ -27,7 +27,7 @@ require "xmlstats/cachers/redis"
 
 require "xmlstats/http_getters/net_http"
 
-require "xmlstats/endpoints/event"
+require "xmlstats/endpoints/events"
 require "xmlstats/endpoints/mlb_standing"
 require "xmlstats/endpoints/nba_standing"
 require "xmlstats/endpoints/mlb_wild_card_standing"
@@ -72,6 +72,50 @@ module Xmlstats
 
   def self.cacher= cacher
     @cacher = cacher
+  end
+
+  def self.events *args
+    Xmlstats::Endpoints::Events.fetch *args
+  end
+
+  def self.mlb_box_score *args
+    Xmlstats::Endpoints::MlbBoxScore.fetch *args
+  end
+
+  def self.nba_box_score *args
+    Xmlstats::Endpoints::NbaBoxScore.fetch *args
+  end
+
+  def self.mlb_standing *args
+    Xmlstats::Endpoints::MlbStanding.fetch *args
+  end
+
+  def self.nba_standing *args
+    Xmlstats::Endpoints::NbaStanding.fetch *args
+  end
+
+  def self.mlb_wild_card_standing *args
+    Xmlstats::Endpoints::MlbWildCardStanding.fetch *args
+  end
+
+  def self.mlb_team_results *args
+    Xmlstats::Endpoints::MlbTeamResults.fetch *args
+  end
+
+  def self.nba_team_results *args
+    Xmlstats::Endpoints::NbaTeamResults.fetch *args
+  end
+
+  def self.mlb_teams *args
+    Xmlstats::Endpoints::MlbTeams.fetch *args
+  end
+
+  def self.nba_teams *args
+    Xmlstats::Endpoints::NbaTeams.fetch *args
+  end
+
+  def self.nba_leaders *args
+    Xmlstats::Endpoints::NbaLeaders.fetch *args
   end
 
 end

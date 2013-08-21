@@ -19,7 +19,7 @@ class Xmlstats::Endpoints::NbaLeaders
 
   include Xmlstats::Endpoint
 
-  def self.fetch(category_id, options = {})
+  def self.fetch(category_id = nil, options = {})
     unless CATEGORIES.include? category_id.to_s
       raise "unknown category id #{category_id.inspect}, must be one of: #{CATEGORIES.inspect}"
     end
