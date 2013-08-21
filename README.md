@@ -26,13 +26,16 @@ contact info is used in the User-Agent string.
 
 You can choose to set this via environment variables:
 
-    export XMLSTATS_API_KEY="my api key"
-    export XMLSTATS_CONTACT_INFO="alex@anticlever.com"
+    export XMLSTATS_API_KEY="xxxxx-xxxx-xxxx"
+    export XMLSTATS_CONTACT_INFO="you@example.com"
 
 Or in Ruby:
 
-    Xmlstats.api_key = "my api key"
-    Xmlstats.contact_info = "alex@anticlever.com"
+    Xmlstats.api_key = "xxxxx-xxxx-xxxx"
+    Xmlstats.contact_info = "you@example.com"
+
+The User-Agent string sent to the server will use your specified contact info
+and look like "xmlstats-ruby/1.3.0 (you@example.com)".
 
 This library supports a couple of different caching mechanisms to prevent
 constantly hitting the API server.
