@@ -10,7 +10,7 @@ module Xmlstats
         http.verify_mode         = OpenSSL::SSL::VERIFY_NONE
         headers                  = {}
         api_key                  = Xmlstats.api_key
-        headers["User-Agent"]    = "xmlstats-rb/#{Xmlstats::VERSION} (#{Xmlstats.contact_info})"
+        headers["User-Agent"]    = "xmlstats-ruby/#{Xmlstats::VERSION} (#{Xmlstats.contact_info})"
         headers["Authorization"] = "Bearer #{api_key}" if api_key
         request                  = Net::HTTP::Get.new(uri.request_uri, headers)
         response                 = http.request(request)
