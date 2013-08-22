@@ -37,6 +37,9 @@ Or in Ruby:
 The User-Agent string sent to the server will use your specified contact info
 and look like "xmlstats-ruby/1.3.0 (you@example.com)".
 
+Caching
+-------
+
 This library supports a couple of different caching mechanisms to prevent
 constantly hitting the API server.
 
