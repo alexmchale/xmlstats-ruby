@@ -82,7 +82,10 @@ module Xmlstats
     end
 
     def cacher= cacher
-      @cacher = cacher
+      case cacher.class.name
+      when "Redis" then @cacher = Xmlstats::Cachers::Redis.new(cacher)
+      else              @cacher = cacher
+      end
     end
 
     # Wrapper methods to each endpoint
