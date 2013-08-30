@@ -3,10 +3,10 @@ require "xmlstats"
 require "rspec"
 require "vcr"
 
-Xmlstats.http_getter    = Xmlstats::HttpGetters::NetHttp.new
-Xmlstats.cacher         = nil
-Xmlstats.api_key      ||= "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
-Xmlstats.contact_info ||= "developer@example.com"
+Xmlstats.http_getter  = Xmlstats::HttpGetters::NetHttp.new
+Xmlstats.cacher       = nil
+Xmlstats.api_key      = ENV["XMLSTATS_API_KEY"] || "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+Xmlstats.contact_info = ENV["XMLSTATS_CONTACT_INFO"] || "developer@example.com"
 
 VCR.configure do |config|
 
