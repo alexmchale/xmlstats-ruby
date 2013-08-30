@@ -22,6 +22,7 @@ module Xmlstats
           error          = Error.new(message)
           error.request  = request
           error.response = response
+          puts response.body
           raise error
         end
       end
