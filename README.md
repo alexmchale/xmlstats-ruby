@@ -165,6 +165,19 @@ To query the current leaders for points per game:
 
     Xmlstats.nba_leaders(:points_per_game)
 
+### NBA Roster ###
+
+https://erikberg.com/api/issues/135
+
+To query the current roster for an MLB team:
+
+    Xmlstats.nba_roster("detroit-pistons")
+
+This method returns an array of **Player** objects with the following fields:
+
+    [:last_name, :first_name, :display_name, :birthdate, :age, :position,
+    :height_in, :height_cm, :weight_lb, :weight_kg, :height_formatted]
+
 Examples
 --------
 

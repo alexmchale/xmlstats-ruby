@@ -21,6 +21,7 @@ require "xmlstats/objects/mlb_box_score"
 require "xmlstats/objects/nba_box_score"
 require "xmlstats/objects/team_result"
 require "xmlstats/objects/nba_leader"
+require "xmlstats/objects/player"
 
 require "xmlstats/cachers/memory"
 require "xmlstats/cachers/redis"
@@ -38,6 +39,7 @@ require "xmlstats/endpoints/nba_teams"
 require "xmlstats/endpoints/mlb_team_results"
 require "xmlstats/endpoints/nba_team_results"
 require "xmlstats/endpoints/nba_leaders"
+require "xmlstats/endpoints/nba_roster"
 
 module Xmlstats
 
@@ -132,6 +134,10 @@ module Xmlstats
 
     def nba_leaders *args
       Xmlstats::Endpoints::NbaLeaders.fetch *args
+    end
+
+    def nba_roster *args
+      Xmlstats::Endpoints::NbaRoster.fetch *args
     end
 
   end

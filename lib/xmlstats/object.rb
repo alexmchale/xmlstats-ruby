@@ -27,6 +27,13 @@ module Xmlstats
         time = Time.parse(val)
         instance_variable_set(ivar, time)
       end
+
+      self.class.object_dates.each do |field_name|
+        ivar = "@#{field_name}"
+        val  = instance_variable_get(ivar)
+        time = Date.parse(val)
+        instance_variable_set(ivar, time)
+      end
     end
 
     def fields
@@ -40,8 +47,7 @@ module Xmlstats
     end
 
     def self.reference field_name, field_type
-      @object_references ||= []
-      @object_references << [ field_name, field_type ]
+      object_references << [ field_name, field_type ]
     end
 
     def self.object_references
@@ -49,12 +55,19 @@ module Xmlstats
     end
 
     def self.time field_name
-      @object_times ||= []
-      @object_times << field_name
+      object_times << field_name
     end
 
     def self.object_times
       @object_times ||= []
+    end
+
+    def self.date field_name
+      object_dates << field_name
+    end
+
+    def self.object_dates
+      @object_dates ||= []
     end
 
   end
