@@ -179,8 +179,8 @@ To query the current roster for an MLB team:
 
 This method returns an array of **Player** objects with the following fields:
 
-    [:last_name, :first_name, :display_name, :birthdate, :age, :position,
-    :height_in, :height_cm, :weight_lb, :weight_kg, :height_formatted]
+    [:last_name, :first_name, :display_name, :birthdate, :age, :birhtplace, 
+    :height_in, :height_cm, :height_formatted, :weight_lb, :weight_kg, :position, uniform_number, bats, throws, roster_status]
 
 
 ### NBA Roster ###
