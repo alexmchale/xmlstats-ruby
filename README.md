@@ -195,7 +195,7 @@ To query the current roster for an NBA team:
 This method returns an array of **Player** objects with the following fields:
 
     [:last_name, :first_name, :display_name, :birthdate, :age, :position,
-    :height_in, :height_cm, :weight_lb, :weight_kg, :height_formatted]
+    :height_in, :height_cm, :weight_lb, :weight_kg, :height_formatted, :roster_status]
 
 
 
