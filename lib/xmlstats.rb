@@ -40,6 +40,7 @@ require "xmlstats/endpoints/mlb_team_results"
 require "xmlstats/endpoints/nba_team_results"
 require "xmlstats/endpoints/nba_leaders"
 require "xmlstats/endpoints/nba_roster"
+require "xmlstats/endpoints/mlb_roster"
 
 module Xmlstats
 
@@ -138,6 +139,10 @@ module Xmlstats
 
     def nba_roster *args
       Xmlstats::Endpoints::NbaRoster.fetch *args
+    end
+
+    def mlb_roster *args
+      Xmlstats::Endpoints::MlbRoster.fetch *args
     end
 
   end

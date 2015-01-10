@@ -165,11 +165,29 @@ To query the current leaders for points per game:
 
     Xmlstats.nba_leaders(:points_per_game)
 
+### MLB Roster ###
+
+https://erikberg.com/api/methods/roster and https://erikberg.com/api/issues/197
+
+To query the current roster for an MLB team:
+
+    For 25-men roster: Xmlstats.mlb_roster("texas-rangers") 
+
+    For 40-men roster: Xmlstats.mlb_roster("texas-rangers", true) - Please note: https://erikberg.com/api/issues/197 
+
+    ***Please note:*** At the moment xmlstats always returns 40-men roster, to prevent errors please use Xmlstats.mlb_roster("texas-rangers") for now. Depending on the API owner both functions might work in the future, but it is added for now already since it is suggested at https://erikberg.com/api/methods/roster.
+
+This method returns an array of **Player** objects with the following fields:
+
+    [:last_name, :first_name, :display_name, :birthdate, :age, :position,
+    :height_in, :height_cm, :weight_lb, :weight_kg, :height_formatted]
+
+
 ### NBA Roster ###
 
 https://erikberg.com/api/issues/135
 
-To query the current roster for an MLB team:
+To query the current roster for an NBA team:
 
     Xmlstats.nba_roster("detroit-pistons")
 
@@ -177,6 +195,8 @@ This method returns an array of **Player** objects with the following fields:
 
     [:last_name, :first_name, :display_name, :birthdate, :age, :position,
     :height_in, :height_cm, :weight_lb, :weight_kg, :height_formatted]
+
+
 
 Examples
 --------
