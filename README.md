@@ -173,9 +173,9 @@ To query the current roster for an MLB team:
 
     For 25-men roster: Xmlstats.mlb_roster("texas-rangers") 
 
-    For 40-men roster: Xmlstats.mlb_roster("texas-rangers", true) - Please note: https://erikberg.com/api/issues/197 
+    For 40-men roster: Xmlstats.mlb_roster("texas-rangers", true)
 
-    ***Please note:*** At the moment xmlstats always returns 40-men roster, to prevent errors please use Xmlstats.mlb_roster("texas-rangers") for now. Depending on the API owner both functions might work in the future, but it is added for now already since it is suggested at https://erikberg.com/api/methods/roster.
+***Please note:*** At the moment xmlstats always returns 40-men roster, to prevent errors please use Xmlstats.mlb_roster("texas-rangers") for now. Depending on the API owner both functions might work in the future, but it is added for now already since it is suggested at https://erikberg.com/api/methods/roster.
 
 This method returns an array of **Player** objects with the following fields:
 
