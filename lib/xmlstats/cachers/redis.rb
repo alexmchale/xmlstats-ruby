@@ -10,7 +10,7 @@ module Xmlstats
           when ::Hash  then ::Redis.new(redis)
           when ::Redis then redis
           when nil     then ::Redis.new
-          else raise "unknown parameter type to redis cacher (#{redis.class}): #{redis.inspect}"
+          else fail "unknown parameter type to redis cacher (#{redis.class}): #{redis.inspect}"
           end
       end
 

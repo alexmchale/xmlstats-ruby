@@ -15,6 +15,10 @@ module Xmlstats
         request                  = Net::HTTP::Get.new(uri.request_uri, headers)
         response                 = http.request(request)
 
+        Xmlstats.limit_total      = Integer(response.header["xmlstats-api-limit"])
+        Xmlstats.limit_remaining  = Integer(response.header["xmlstats-api-remaining"])
+        Xmlstats.limit_reset_time = Time.at(Integer(response.header["xmlstats-api-reset"]))
+
         if response.kind_of? Net::HTTPOK
           response.body
         else
