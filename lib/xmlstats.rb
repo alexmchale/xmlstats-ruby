@@ -70,7 +70,7 @@ module Xmlstats
     # Manage http getter
 
     def http_getter
-      @http_getter || Xmlstats::HttpGetters::NetHttp.new
+      @http_getter ||= Xmlstats::HttpGetters::NetHttp.new
     end
 
     def http_getter= http_getter
@@ -80,7 +80,7 @@ module Xmlstats
     # Manage cacher
 
     def cacher
-      @cacher || Xmlstats::Cachers::Memory.new
+      @cacher ||= Xmlstats::Cachers::Memory.new
     end
 
     def cacher= cacher
@@ -88,6 +88,36 @@ module Xmlstats
       when "Redis" then @cacher = Xmlstats::Cachers::Redis.new(cacher)
       else              @cacher = cacher
       end
+    end
+
+    # Methods to retrieve current rate limit status
+
+    def limit_total
+      (cacher.get("rate_limit.limit_total") || 6).to_i
+    end
+
+    def limit_total=(count)
+      cacher.set("rate_limit.limit_total", count)
+    end
+
+    def limit_remaining
+      (cacher.get("rate_limit.limit_remaining") || 6).to_i
+    end
+
+    def limit_remaining=(count)
+      cacher.set("rate_limit.limit_remaining", count)
+    end
+
+    def limit_reset_time
+      if ( reset_time = cacher.get("rate_limit.limit_reset_time") )
+        Time.parse(reset_time)
+      else
+        Time.now
+      end
+    end
+
+    def limit_reset_time=(time)
+      cacher.set("rate_limit.limit_reset_time", time.iso8601)
     end
 
     # Wrapper methods to each endpoint
