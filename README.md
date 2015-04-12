@@ -165,18 +165,39 @@ To query the current leaders for points per game:
 
     Xmlstats.nba_leaders(:points_per_game)
 
+### MLB Roster ###
+
+https://erikberg.com/api/methods/roster and https://erikberg.com/api/issues/197
+
+To query the current roster for an MLB team:
+
+    For 25-men roster: Xmlstats.mlb_roster("texas-rangers", false) or Xmlstats.mlb_roster("texas-rangers")
+
+    For 40-men roster: Xmlstats.mlb_roster("texas-rangers", true)
+
+***Please note:*** Difference in roster is only seen before opening day. The MLB rosters are only updated through beginning of December. The 25-men roster and 40-men roster are available before Opening Day. Since September the active roster expands to 40 players. See https://erikberg.com/api/methods/roster and https://erikberg.com/api/issues/197
+
+This method returns an array of **Player** objects with the following fields:
+
+    [:last_name, :first_name, :display_name, :birthdate, :age, :birhtplace, 
+    :height_in, :height_cm, :height_formatted, :weight_lb, :weight_kg, :position, 
+    :uniform_number, :bats, :throws, :roster_status]
+
+
 ### NBA Roster ###
 
 https://erikberg.com/api/issues/135
 
-To query the current roster for an MLB team:
+To query the current roster for an NBA team:
 
     Xmlstats.nba_roster("detroit-pistons")
 
 This method returns an array of **Player** objects with the following fields:
 
     [:last_name, :first_name, :display_name, :birthdate, :age, :position,
-    :height_in, :height_cm, :weight_lb, :weight_kg, :height_formatted]
+    :height_in, :height_cm, :weight_lb, :weight_kg, :height_formatted, :roster_status]
+
+
 
 Examples
 --------
